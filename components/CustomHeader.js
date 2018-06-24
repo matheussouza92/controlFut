@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import {
     View,
-    Text
+    Text,
+    StyleSheet
 } from 'react-native';
 import {Header} from 'react-native-elements';
+import CustomSubHeader from "./CustomSubHeader";
 
 
 
@@ -13,25 +15,37 @@ export default class CustomHeader extends Component {
     renderCenterComponent = () => {
 
         return (
-            <View style = {{marginTop: 26}}>
-                <Text style = {{ color: '#fff' }}>Futebol de Domingo</Text>
-                <Text style = {{ color: '#fff', textAlign: 'center' }}>24/06 às 08:30h</Text>
+            <View style = {styles.container}>
+                <Text style = {styles.jogo}>Futebol de Domingo</Text>
+                <Text style = {styles.dataJogo}>24/06 às 08:30h</Text>
             </View>
         );
     }
 
     render() {
         return (
-            <Header
-                leftComponent={{ icon: 'menu', color: '#fff' }}
-                centerComponent={this.renderCenterComponent()}
-            />
+            <View>
+                <Header
+                    leftComponent={{ icon: 'menu', color: '#fff' }}
+                    centerComponent={this.renderCenterComponent()}
+                />
+                <CustomSubHeader/>
+            </View>
             
         );
     }
 }
 
-
-//<View style = {}></View>
-
-//{ text: 'Futebol de Domingo', style: { color: '#fff' }}
+const styles = StyleSheet.create({
+    container: {
+        marginTop: 26
+    },
+    jogo: {
+        color: '#fff' 
+    },
+    dataJogo: {
+        color: '#fff', 
+        textAlign: 'center',
+        alignItems: 'flex-end'
+    }
+});
