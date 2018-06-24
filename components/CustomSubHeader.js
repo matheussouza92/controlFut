@@ -4,25 +4,21 @@ import {
     StyleSheet,
     Text
 } from 'react-native';
-import {HEADER_ITEMS, ITEMS} from '../persistence/homeitems';
+import { HEADER_ITEMS, ITEMS } from '../persistence/homeitems';
 
 export default class CustomSubHeader extends Component {
 
-    renderTopItens () {
-        return (
-            ITEMS.map((item) => {
-                <View style = {styles.item} key = {item.ordination}>
-                    <Text style = {styles.itemText}>{item.desc}</Text>
-                </View>
-            })
-        );
-    }
-
     render() {
+        console.log('ITEMS', ITEMS)
         return (
-            <View style = {styles.container}>
-                TopItens={this.renderTopItens()}
-            </View> 
+            <View style={styles.container}>
+                {ITEMS.map((item) => {
+                    return (
+                        < View style={styles.item} key={item.ordination} >
+                            <Text style={styles.itemText}>{item.desc}</Text>
+                        </View >)
+                })}
+            </View>
         );
     }
 }
@@ -31,17 +27,17 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
         marginTop: -1,
-        height: 50, 
-        backgroundColor: '#CCC',
+        height: 500,
+        backgroundColor: 'blue',
         alignContent: 'center'
     },
-    item: {       
+    item: {
         width: 40,
-        height: 40, 
+        height: 40,
         backgroundColor: '#666'
     },
     itemText: {
-        color: '#fff', 
+        color: '#aaaaaa',
         textAlign: 'center'
     }
 });
