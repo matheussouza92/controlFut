@@ -5,26 +5,36 @@ import {
     Text
 } from 'react-native';
 import {HEADER_ITEMS, ITEMS} from '../persistence/homeitems';
+import { Icon } from 'react-native-elements';
 
 //const WIDTH_SCREEN = Dimensions.get('screen').width;
 
 export default class CustomSubHeader extends Component {
 
-    renderTopItens () {
+    renderTopItens ()  {
         return (
             ITEMS.map((item) => {
-                <View style = {styles.item} key = {item.ordination}>
-                    <Text style = {styles.itemText}>{item.desc}</Text>
-                </View>
+                return (
+                    <View style = {styles.item} key = {item.ordination}>
+                        <Icon 
+                            style = {styles.icon}
+                            raised
+                            name= {item.icon}
+                            size = {13}
+                            type='font-awesome'
+                            onPress={() => console.log('hello')} 
+                        />
+                        <Text style = {styles.itemText}>{item.desc}</Text>
+                    </View>
+                );
             })
         );
     }
 
     render() {
-        console.log('ITEMS', ITEMS)
         return (
             <View style = {styles.container}>
-                TopItens={this.renderTopItens()}
+                TopItens = {this.renderTopItens()}
             </View> 
         );
     }
@@ -34,14 +44,13 @@ const styles = StyleSheet.create({
     container: {
         flexDirection: 'row',
         marginTop: -1,
-        height: 50, 
-        backgroundColor: '#CCC',
+        height: 60, 
+        backgroundColor: '#C1E1FA',
         alignContent: 'center'
     },
-    item: {       
-        width: 40,
-        height: 40, 
-        backgroundColor: '#666'
+    icon: {
+        alignSelf: 'center',
+        alignContent: 'center'
     },
     item: {   
         flex: 1,    
@@ -50,7 +59,8 @@ const styles = StyleSheet.create({
         backgroundColor: '#F0F1F1'
     },
     itemText: {
-        color: '#fff', 
-        textAlign: 'center'
+        color: '#000', 
+        textAlign: 'center',
+        fontSize: 10
     }
 });

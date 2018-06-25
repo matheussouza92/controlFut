@@ -4,11 +4,8 @@ import {
     Text,
     StyleSheet
 } from 'react-native';
-import {Header} from 'react-native-elements';
-import CustomSubHeader from "./CustomSubHeader";
-
-
-
+import { Header } from 'react-native-elements';
+import CustomSubHeader from './CustomSubHeader';
 
 export default class CustomHeader extends Component {
 
