@@ -4,17 +4,19 @@ import {
     Text,
     StyleSheet
 } from 'react-native';
-import { Header } from 'react-native-elements';
-import CustomSubHeader from './CustomSubHeader';
+import {Header} from 'react-native-elements';
+import CustomSubHeader from "./CustomSubHeader";
+
+
+
 
 export default class CustomHeader extends Component {
 
-    renderCenterComponent = () => {
-
+    renderCenterComponent() {
         return (
-            <View style = {styles.container}>
-                <Text style = {styles.jogo}>Futebol de Domingo</Text>
-                <Text style = {styles.dataJogo}>24/06 às 08:30h</Text>
+            <View style={styles.container}>
+                <Text style={styles.jogo}>Futebol de Domingo</Text>
+                <Text style={styles.dataJogo}>24/06 às 08:30h</Text>
             </View>
         );
     }
@@ -28,7 +30,7 @@ export default class CustomHeader extends Component {
                 />
                 <CustomSubHeader />
             </View>
-            
+
         );
     }
 }
@@ -38,10 +40,10 @@ const styles = StyleSheet.create({
         marginTop: 26
     },
     jogo: {
-        color: '#fff' 
+        color: '#fff'
     },
     dataJogo: {
-        color: '#fff', 
+        color: '#fff',
         textAlign: 'center',
         alignItems: 'flex-end'
     }
